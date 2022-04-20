@@ -1,0 +1,40 @@
+<div id="board-wrapper">
+    {{ if .Move }}
+    <h3 class="move">Move: White</h3>
+    {{ else }}
+    <h3 class="move">Move: Black</h3>
+    {{ end }}
+    <div class="board-with-y">
+        <div class="axis-y">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+        </div>
+        <div id="chessboard">
+            {{range $i, $v := .Board}}
+                {{range  $j, $a := $v}}
+                    {{if mod $i $j 2}}
+                        <div class="white"><span>{{$a}}</span></div>
+                    {{ else }}
+                        <div class="black"><span>{{$a}}</span></div>
+                    {{ end }}
+                {{end}}
+            {{end}}
+        </div>
+    </div>
+    <div class="axis-x">
+        <span>A</span>
+        <span>B</span>
+        <span>C</span>
+        <span>D</span>
+        <span>E</span>
+        <span>F</span>
+        <span>G</span>
+        <span>H</span>
+    </div>
+</div>
